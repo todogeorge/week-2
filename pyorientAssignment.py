@@ -36,14 +36,28 @@ print 'received ' + str(numListings) + ' records'
 # then test each price to see if it is smaller than the current minimum. If it is, update 
 # the minimum variable with that price. You can do something similar to find the maximum.
 
+min_p = 20001
+max_p = 0
+sum_p = 0
+
 for record in records:
-	print record.price
+	sum_p += record.price
+	
+	if record.price<min_p:
+	    min_p = record.price
+	else:
+	    min_p = min_p
+	if record.price>max_p:
+	    max_p=record.price
+	else:
+	    max_p = max_p
+	avg_p = sum_p/len(records)
 
 
 # [PRINT OUT THE RESULTING VALUES BY CONCATENATING THEM TO THESE LINES TO CHECK YOUR WORK]
 
-print 'min price: '
-print 'max price: ' 
-print 'average price: '
+print 'min price: ' + str(min_p)
+print 'max price: ' + str(max_p)
+print 'average price: ' + str(avg_p)
 
 client.db_close()
